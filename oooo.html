@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnappixAgency</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    nav {
+      background: #222;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+    }
+    nav .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      font-weight: 600;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .hero {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+      color: white;
+      border-radius: 10px;
+      margin-bottom: 3rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .clients-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    .client {
+      background: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      font-weight: 600;
+      min-width: 120px;
+      text-align: center;
+      user-select: none;
+    }
+    form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 1rem auto 3rem;
+    }
+    form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    form button {
+      background: #007bff;
+      color: white;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease;
+    }
+    form button:hover {
+      background: #0056b3;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      font-size: 0.9rem;
+    }
+    @media(max-width:600px){
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="https://cdn.pixabay.com/photo/2023/10/19/15/58/logo-design-8327040_1280.png" alt="SnappixAgency Logo">
+    SnappixAgency
+  </div>
+  <ul>
+    <li><a href="#home" onclick="showPage('home')">Home</a></li>
+    <li><a href="#about" onclick="showPage('about')">About</a></li>
+    <li><a href="#contact" onclick="showPage('contact')">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <section id="home" class="page">
+    <div class="hero">
+      <h1>Welcome to SnappixAgency</h1>
+      <p>Your partner in creative social media marketing and content strategy.</p>
+    </div>
+    <p>
+      At SnappixAgency, we create engaging content tailored to your brand’s voice and goals.
+      Whether it's social media campaigns, creative videos, or brand strategy, we make your vision come to life.
+    </p>
+    <video controls width="100%" style="margin-top: 1rem; border-radius: 10px;">
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section id="about" class="page" style="display:none;">
+    <h2>About Us</h2>
+    <p>We are proud to have worked with these amazing clients:</p>
+    <div class="clients-list">
+      <div class="client">Client One</div>
+      <div class="client">Client Two</div>
+      <div class="client">Client Three</div>
+      <div class="client">Client Four</div>
+    </div>
+  </section>
+
+  <section id="contact" class="page" style="display:none;">
+    <h2>Contact Us</h2>
+    <form onsubmit="submitForm(event)">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 SnappixAgency. All rights reserved.
+</footer>
+
+<script>
+  function showPage(pageId) {
+    document.querySelectorAll('.page').forEach(page => {
+      page.style.display = 'none';
+    });
+    document.getElementById(pageId).style.display = 'block';
+  }
+
+  showPage('home');
+
+  function submitForm(e) {
+    e.preventDefault();
+    alert('Thank you for contacting SnappixAgency! We will get back to you soon.');
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
